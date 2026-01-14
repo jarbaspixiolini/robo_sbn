@@ -398,6 +398,7 @@ Antes de enviar, pergunte:
 skills/
 ├── email_marketing.md         (Campanhas por email)
 ├── whatsapp_push.md           (WhatsApp direto)
+├── push_notification.md       (Push notifications via app)
 ├── meta_ads.md                (Facebook/Instagram)
 ├── blog_post_seo.md           (Blog posts otimizados)
 └── landing_pages.md           (Páginas de conversão)
