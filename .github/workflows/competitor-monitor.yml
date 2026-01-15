@@ -1,0 +1,87 @@
+name: Conexa Monitor - Competitor Intelligence
+
+on:
+  schedule:
+    # Run at 14:00 UTC on Monday, Wednesday, Friday
+    - cron: '0 14 * * 1,3,5'
+  workflow_dispatch:  # Permite disparar manualmente
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          cd conexa-monitor
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Conexa Monitor
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          cd conexa-monitor
+          python run.py
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: monitor-artifacts
+          path: conexa-monitor/artifacts/
+          retention-days: 7
+
+      - name: Commit database changes
+        if: always()
+        run: |
+          cd conexa-monitor
+          git config user.name "Conexa Monitor Bot"
+          git config user.email "monitor@conexa.local"
+          git add artifacts/monitor.db
+          git commit -m "Auto: Monitor execution - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
+          git push
+
+      - name: Job status notification
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          python -c "
+          import requests
+          import json
+          import os
+          
+          webhook = os.getenv('SLACK_WEBHOOK_URL')
+          if webhook:
+            message = {
+              'text': ':warning: Conexa Monitor - Erro na execução',
+              'blocks': [
+                {
+                  'type': 'section',
+                  'text': {
+                    'type': 'mrkdwn',
+                    'text': '*Conexa Monitor*\n❌ Falha na execução do workflow\n\nPor favor, verifique os logs.'
+                  }
+                }
+              ]
+            }
+            requests.post(webhook, json=message)
