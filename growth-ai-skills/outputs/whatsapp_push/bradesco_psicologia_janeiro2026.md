@@ -1,12 +1,13 @@
-# 💬 Campanha WhatsApp - Bradesco Saúde + Ano Novo
+# 💬 Campanha WhatsApp (Conexa AI) - Bradesco Saúde + Ano Novo
 
 ## 📋 Brief Executivo
 
 **Objetivo:** Ativar usuários Bradesco (encaminhamento aprovado) para agendar primeira consulta psicologia  
 **Segmento:** Usuários Bradesco + Encaminhamento médico aprovado + SEM psicologia agendada  
 **Contexto:** Início de ano (resoluções, cuidados com saúde mental)  
-**Benefício:** Flexibilidade de agenda/horário + suporte profissional  
-**CTA:** "Agendar Agora" via WhatsApp  
+**Canal:** Conexa AI (chatbot inteligente no WhatsApp)  
+**Benefício:** Flexibilidade de agenda/horário + suporte profissional + orientação AI  
+**Fluxo:** Conversa natural → Contexto → Benefícios → Agendamento automático  
 **Compliance:** ✅ Checklist Saúde Aplicado  
 
 ---
@@ -33,83 +34,165 @@ MENÇÃO: Encaminhamento já aprovado (destressa)
 
 ---
 
-## 🎨 **ETAPA 2: CRIAÇÃO (Draft 1 Completo)**
+## 🎨 **ETAPA 2: CRIAÇÃO (Draft 1 Completo - Conexa AI)**
 
-### **Versão Principal WhatsApp (3 mensagens)**
+### **Fluxo Conversacional via Conexa AI**
 
-#### **Mensagem 1 — Abertura (Contexto)**
-```
-Oi {{first_name}}! 👋
+A Conexa AI permite conversa natural e inteligente. O fluxo será:
 
-Começar o ano cuidando da saúde mental é um ótimo planejamento.
-Seu encaminhamento médico já está aprovado na Conexa! 💚
-
-Que tal agendar sua primeira consulta com um psicólogo?
-```
-
-**Análise:**
-- ✅ Tom amigável e próximo (Conexa brand)
-- ✅ Sem diagnóstico ou promessa
-- ✅ Contextualiza ano novo + encaminhamento
-- ✅ Convida sem pressionar
-- ✅ 1 emoji relevante (💚 = saúde mental)
+**1️⃣ GATILHO** → Usuário é identificado como "Bradesco + encaminhamento aprovado"  
+**2️⃣ SAUDAÇÃO** → AI reconhece o usuário e contextualiza  
+**3️⃣ CONVERSA** → AI faz perguntas simples, entende contexto  
+**4️⃣ ORIENTAÇÃO** → AI sugere próximo passo (agendar)  
+**5️⃣ AGENDAMENTO** → AI conecta com agendamento automático  
 
 ---
 
-#### **Mensagem 2 — Benefícios (Flexibilidade)**
+### **Versão 1: Fluxo Conversacional Natural (Conexa AI Padrão)**
+
+#### **Turno 1 — Saudação + Reconhecimento**
 ```
-Temos várias vantagens pra você:
+🤖 Conexa AI:
+"Oi {{first_name}}! 👋 Tudo bem?
 
-✓ Agenda FLEXÍVEL — escolha o melhor horário
-✓ Telemedicina — consulta onde estiver
-✓ Psicólogos especializados — cuidado profissional
-✓ Sem fila — acesso direto para Bradesco
+Vi aqui que você tem um encaminhamento médico aprovado pra psicologia.
+Que legal! Ano novo é perfeito pra cuidar da saúde mental. 💚
 
-Tudo pensado pro seu conforto! 🌟
+Você já tem alguma consulta agendada, ou tá pensando em marcar?"
+
+TIPO: Mensagem inicial + pergunta aberta
+OBJETIVO: Validar status e engajar
+PERSONALIZAÇÃO: {{first_name}} já conhecido (CRM)
 ```
 
-**Análise:**
-- ✅ Bullets listam benefícios (fácil ler)
-- ✅ Menção telemedicina (clareza)
-- ✅ "Sem fila" = valor especial Bradesco
-- ✅ Foco em flexibilidade (a maior objeção)
-- ✅ Linguagem positiva ("seu conforto")
+#### **Turno 2 — Entendimento (baseado em resposta do usuário)**
+```
+Cenário A: Usuário responde "Não, ainda não marquei"
+
+🤖 Conexa AI:
+"Entendi! Então deixa eu te ajudar. 😊
+
+Qual seria o melhor formato pra você?
+• Consulta por vídeo (de qualquer lugar)
+• Flexibilidade de horário
+• Acesso fácil e rápido
+
+Tudo isso a gente consegue fazer aqui!"
+
+TIPO: Validação + oferecimento de benefícios
+OBJETIVO: Resumir vantagens de forma conversacional
+```
+
+#### **Turno 3 — Orientação + Próximo Passo**
+```
+Continuação natural:
+
+🤖 Conexa AI:
+"Vou te conectar com nosso sistema de agendamento. 
+
+Qual dia da semana você prefere?
+E qual horário combina mais com você?"
+
+TIPO: Coleta de preferência (conversa, não formulário)
+OBJETIVO: Simplificar agendamento
+INTELIGÊNCIA: AI aprende preferências do usuário
+```
+
+#### **Turno 4 — Confirmação + Conexão**
+```
+Após resposta:
+
+🤖 Conexa AI:
+"Perfeito! {{first_name}}, achei {{day}} às {{time}} com nosso psicólogo {{doctor_name}}.
+
+Tá bom assim? Confirma aqui que já marca! ✅"
+
+TIPO: Confirmação com opções
+OBJETIVO: Fechar agendamento
+PERSONALIZACAO: Dados do médico, dia/hora específicos
+```
 
 ---
 
-#### **Mensagem 3 — CTA (Próximos Passos)**
-```
-Quer dar esse passo? É bem rápido!
+### **IMPORTANTE: Filosofia Conexa AI**
 
-👉 Clique aqui para agendar: [LINK DEEP LINK]
+A Conexa AI não é automação simples. Ela:
 
-Ou responda este WhatsApp que a gente marca pra você!
-
-Estamos aqui pro seu bem-estar 💙
-```
-
-**Análise:**
-- ✅ CTA claro e direto
-- ✅ 2 opções de ação (link + WhatsApp)
-- ✅ Tom acolhedor
-- ✅ Mantém conversação aberta
+✅ **Entende contexto** — Sabe que o usuário tem encaminhamento aprovado  
+✅ **Conversa natural** — Não soa robô, soa colega  
+✅ **Faz perguntas** — Não impõe respostas  
+✅ **É acolhedora** — Tom próximo e cuidadoso  
+✅ **Oferece opções** — Flexibilidade em cada passo  
+✅ **Aprende** — Melhora com cada conversa  
+✅ **Orienta** — Guia para próximo passo claro  
 
 ---
 
-### **Testes de Personalização**
+### **Variante B: Fluxo Mais Direto (para usuários apressados)**
 
 ```
-CASO 1: Usuário com first_name
-"Oi Maria! 👋"
-✓ Pessoal, próximo
+Se AI detectar padrão "apressado" (mensagens curtas, horas off-peak):
 
-CASO 2: Usuário sem first_name (fallback)
-"Oi! 👋"
-✓ Simples, não quebra o tom
+🤖 Conexa AI:
+"{{first_name}}, seu encaminhamento tá aprovado! 💚
 
-CASO 3: Menção ao encaminhamento
-{{first_name}}, seu encaminhamento médico já foi aprovado!
-✓ Destressa (já passou do médico)
+Quer agendar psicologia agora? 
+Tenho horários hoje mesmo, amanhã ou quando quiser."
+
+TIPO: Rápido e direto
+OBJETIVO: Conversão rápida
+TRIGGER: Padrão de comportamento do usuário
+```
+
+---
+
+### **Variante C: Fluxo Orientativo (para usuários indecisos)**
+
+```
+Se AI detectar dúvida ou resistência:
+
+🤖 Conexa AI:
+"Tranquilo! Entendo que pode gerar dúvida.
+
+Deixa eu te contar:
+• Primeira consulta é pra conhecer e entender você
+• Sem compromisso de tratamento longo
+• Você descobre se rola uma conexão boa com o psicólogo
+
+E se não rolar? Trocamos! Simples assim.
+
+Faz sentido pra você? Quer tentar?"
+
+TIPO: Educativo + tranquilizador
+OBJETIVO: Remover barreiras emocionais
+INTELIGENCIA: AI detecta hesitação na conversa
+```
+
+---
+
+### **Estrutura de Mensagens (Conexa AI Native)**
+
+```
+ESTRUTURA RECOMENDADA:
+├─ Emojis estratégicos (1-2 por mensagem)
+├─ Frases curtas (max 2-3 linhas por parágrafo)
+├─ Perguntas abertas (entender usuário)
+├─ Oferecimento de opções (flexibilidade)
+├─ Confirmação explícita (antes de agir)
+└─ Próximo passo claro (ação definida)
+
+EXEMPLO:
+"Oi {{first_name}}! 👋
+
+Seu encaminhamento tá aprovado.
+
+Quando você quer agendar?"
+[Opção A] [Opção B] [Opção C]
+
+PADRÃO:
+✅ Pergunta + opções (não impõe)
+✅ Espera resposta (conversa, não broadcast)
+✅ Personaliza próximo turno (baseado em resposta)
 ```
 
 ---
@@ -201,103 +284,91 @@ CTA: ✅ "Agendar Agora" + responder WhatsApp
 
 ---
 
-## 🚀 **ETAPA 4: VARIAÇÕES (A/B Testing)**
+## 🚀 **ETAPA 4: Variações (Inteligência AI)**
 
-### **Variante A — Foco em Flexibilidade (50% tráfego)**
+A Conexa AI pode usar diferentes estratégias baseadas em:
+- Padrão de resposta do usuário
+- Hora de envio
+- Histórico de interação
+- Sentimento detectado na conversa
+
+---
+
+### **Estratégia A — "Direto ao Ponto" (trigger: usuário acelerado)**
 
 ```
-MENSAGEM 1:
-"Oi {{first_name}}! 👋
+DETECÇÃO: Usuário responde rápido, mensagens curtas, acessa app em horários pico
 
-Começar 2026 cuidando da saúde mental é inteligente!
-Seu encaminhamento médico já foi aprovado. 💚
+🤖 FLUXO AI:
+"{{first_name}}, seu encaminhamento tá aprovado! 💚
 
-Agora é só escolher o melhor horário pra você agendar!"
+Qual dia você prefere agendar?"
 
-MENSAGEM 2:
-"A flexibilidade é TOTAL:
+[Hoje] [Amanhã] [Próxima semana]
 
-✓ Qualquer hora — você escolhe
-✓ Qualquer dia — segunda a domingo
-✓ Telemedicina — de casa ou de qualquer lugar
-✓ Psicólogo especializado — qualidade garantida
-
-Sem pressa, sem fila! 🌟"
-
-MENSAGEM 3:
-"Bora agendar?
-
-👉 Escolha seu horário: [LINK]
-
-Ou me diga qual dia/horário funciona! Resolvemos rápido aqui 😊"
-
-ÂNGULO: Liberdade total + comodidade
+LÓGICA: Vai direto ao agendamento
+CONVERSÃO: Mais rápida
+IDEAL PARA: Usuários ocupados, sem tempo
 ```
 
 ---
 
-### **Variante B — Foco em Saúde Mental (30% tráfego)**
+### **Estratégia B — "Conversacional" (trigger: usuário engajado)**
 
 ```
-MENSAGEM 1:
-"Olá {{first_name}}! 💙
+DETECÇÃO: Usuário responde com mensagens longas, faz perguntas, engaja
 
-Investir em saúde mental no ano novo é ouro puro.
-Seu encaminhamento médico com a Conexa já tá aprovado!
+🤖 FLUXO AI:
+"Oi {{first_name}}! 👋 Tudo bem?
 
-Que tal conversar com um psicólogo especializado?"
+Vi que você tem um encaminhamento aprovado pra psicologia. 
+Que legal! Ano novo é perfeito pra cuidar da saúde mental. 💚
 
-MENSAGEM 2:
-"Por que agora é o momento certo:
+Você já pensou em agendar? Qual seria o melhor dia pra você?"
 
-✓ Começar bem — janeiro é perfeito pra novos hábitos
-✓ Suporte profissional — psicólogo qualificado te acompanha
-✓ Telemedicina — acesso fácil e seguro
-✓ Cuidado contínuo — quando precisar, a gente tá aqui
-
-Sua saúde mental importa! 🌟"
-
-MENSAGEM 3:
-"Pronto pra começar?
-
-👉 Agende sua consulta: [LINK]
-
-Responde aqui também! Marcamos no seu tempo 💚"
-
-ÂNGULO: Bem-estar + continuidade
+LÓGICA: Conversa natural, faz perguntas
+CONVERSÃO: Mais engajamento, maior confiança
+IDEAL PARA: Usuários que gostam de diálogo
 ```
 
 ---
 
-### **Variante C — Foco em Encaminhamento (20% tráfego)**
+### **Estratégia C — "Orientativa" (trigger: usuário em dúvida)**
 
 ```
-MENSAGEM 1:
-"Oi {{first_name}}! 👋
+DETECÇÃO: Usuário hesita, faz perguntas sobre o processo, tem objeções
 
-NOVIDADE: Seu encaminhamento médico foi aprovado! 💚
+🤖 FLUXO AI:
+"Entendo sua dúvida! Deixa eu explicar como funciona:
 
-Agora você pode agendar consulta com psicólogo sem burocracia.
-Tudo rápido, fácil e no seu tempo."
+1️⃣ PRIMEIRA CONSULTA = Conhecer você, entender suas necessidades
+2️⃣ SEM COMPROMISSO = Você vê se conecta bem com o psicólogo
+3️⃣ SE NÃO ROLAR = Trocamos de profissional, sem problema
 
-MENSAGEM 2:
-"E vem com tudo:
+Faz sentido? Quer tentar?"
 
-✓ Sem espera — acesso priorizado Bradesco
-✓ Flexível — escolhe dia, hora, horário
-✓ Telemedicina — consulta confortável
-✓ Profissional certificado — expertise garantida
+LÓGICA: Educativa, remove barreiras
+CONVERSÃO: Mais confiança, menos desistências
+IDEAL PARA: Usuários indecisos ou primeira vez
+```
 
-É só aproveitar! 🌟"
+---
 
-MENSAGEM 3:
-"Seu encaminhamento já tá lá, vem marcar!
+### **Como a Conexa AI Escolhe a Estratégia:**
 
-👉 Reserve seu horário: [LINK]
+```
+Input 1: Padrão de uso do usuário (rápido/lento)
+Input 2: Contexto de chegada (proativo/reactivo)
+Input 3: Histórico de mensagens (duração, frequência)
+Input 4: Sentimento detectado (confiança/dúvida/urgência)
 
-Pode chamar aqui no WhatsApp também! Tamo junto 💙"
+↓
 
-ÂNGULO: Validação do encaminhamento + praticidade
+AI Seleciona: Estratégia A, B ou C
+
+↓
+
+Output: Fluxo personalizado em tempo real
 ```
 
 ---
