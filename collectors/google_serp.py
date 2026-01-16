@@ -1,65 +1,44 @@
-import os
-import re
-from urllib.parse import urlparse
-
-import requests
-
-def _domain_from_url(url: str) -> str | None:
-    try:
-        host = urlparse(url).netloc.lower()
-        host = host.replace("www.", "")
-        return host if host else None
-    except Exception:
-        return None
-
-def _extract_domains_from_serpapi(ads: list[dict], max_domains: int) -> list[str]:
-    domains = []
-    for ad in ads or []:
-        # SerpAPI costuma trazer displayed_link / link / tracking_link
-        for key in ("displayed_link", "link", "tracking_link"):
-            if key in ad and ad[key]:
-                # displayed_link às vezes vem "example.com/path"
-                raw = ad[key]
-                if raw.startswith("http"):
-                    d = _domain_from_url(raw)
-                else:
-                    # tenta extrair domínio do texto
-                    m = re.search(r"([a-z0-9-]+\.[a-z]{2,})", raw.lower())
-                    d = m.group(1) if m else None
-                if d:
-                    domains.append(d)
-                    break
-        if len(domains) >= max_domains:
-            break
-
-    # unique preservando ordem
-    seen = set()
-    out = []
-    for d in domains:
-        if d not in seen:
-            seen.add(d)
-            out.append(d)
-    return out
-
 async def collect_serp(cfg: dict, keyword: str, city: str, uf: str, device: str, max_domains: int = 30) -> dict:
     api_key = os.getenv("SERPAPI_API_KEY")
     if not api_key:
         raise RuntimeError("SERPAPI_API_KEY não configurada")
 
-    # SerpAPI parameters
     params = {
         "engine": "google",
         "q": keyword,
-        "google_domain": "google.com.br",
         "hl": "pt",
         "gl": "br",
+        # location às vezes é sensível; mantemos e temos fallback
         "location": f"{city}, {uf}, Brazil",
-        "device": "mobile" if device == "mobile" else "desktop",
         "api_key": api_key,
     }
 
+    # SerpAPI: para mobile, enviar device=mobile; para desktop, omitir o parâmetro
+    if device == "mobile":
+        params["device"] = "mobile"
+
     r = requests.get("https://serpapi.com/search.json", params=params, timeout=30)
-    r.raise_for_status()
+
+    # Se der erro, printa o corpo para diagnosticar (aparece no log do Actions)
+    if r.status_code >= 400:
+        try:
+            print("[SERPAPI ERROR]", r.status_code, r.text[:1200])
+        except Exception:
+            pass
+
+        # Fallback: remove location e tenta de novo (muitas vezes resolve 400)
+        if "location" in params:
+            params.pop("location", None)
+            r = requests.get("https://serpapi.com/search.json", params=params, timeout=30)
+            if r.status_code >= 400:
+                try:
+                    print("[SERPAPI ERROR - FALLBACK]", r.status_code, r.text[:1200])
+                except Exception:
+                    pass
+                r.raise_for_status()
+        else:
+            r.raise_for_status()
+
     data = r.json()
 
     ads = data.get("ads") or data.get("top_ads") or []
