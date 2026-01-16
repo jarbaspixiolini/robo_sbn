@@ -1,3 +1,7 @@
+import os
+import re
+from urllib.parse import urlparse
+import requests
 async def collect_serp(cfg: dict, keyword: str, city: str, uf: str, device: str, max_domains: int = 30) -> dict:
     api_key = os.getenv("SERPAPI_API_KEY")
     if not api_key:
