@@ -1,0 +1,22 @@
+keywords:
+  - "conexa"
+  - "conexa saude"
+  - "conexa psicologia viva"
+  - "psicologia viva"
+  - "zenklub"
+
+capitals_sul_sudeste:
+  - { name: "São Paulo", uf: "SP" }
+  - { name: "Rio de Janeiro", uf: "RJ" }
+  - { name: "Belo Horizonte", uf: "MG" }
+  - { name: "Vitória", uf: "ES" }
+  - { name: "Curitiba", uf: "PR" }
+  - { name: "Florianópolis", uf: "SC" }
+  - { name: "Porto Alegre", uf: "RS" }
+
+devices:
+  - "desktop"
+  - "mobile"
+
+limits:
+  serp_results_per_run: 30
