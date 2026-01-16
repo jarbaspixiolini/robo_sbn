@@ -26,7 +26,7 @@ jobs:
         env:
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          FORCE_SLACK_TEST: "1"
+      
         run: |
           python robo.py
 
