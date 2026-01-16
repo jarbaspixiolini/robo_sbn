@@ -84,9 +84,6 @@ async def main():
     load_dotenv()
     init_db()
         # TESTE: envia uma mensagem sempre que FORCE_SLACK_TEST=1
-    if os.getenv("FORCE_SLACK_TEST") == "1":
-        send_slack("Conexa Monitor: teste de produção (mensagem forçada) ✅")
-
 
     # garante artifacts para upload no Actions
     Path("artifacts").mkdir(exist_ok=True)
@@ -153,4 +150,5 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
